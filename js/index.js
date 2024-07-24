@@ -154,8 +154,6 @@
         })
     })
 
-
-
     takeInput.addEventListener('click', () => {
         takeInput.classList.add('selectedInput')
 
@@ -231,7 +229,6 @@
     } else {
         right.classList.remove('not-allowed')
     }
-
         left.addEventListener('click', () => {
             counter--
             if (counter < 0) {
