@@ -1,268 +1,271 @@
 {
-    const dropdownResponse = document.querySelector('.dropdown-response')
-    const open = document.querySelector('.response-open')
-    const close = document.querySelector('.response-close')
+  const dropdownResponse = document.querySelector(".dropdown-response");
+  const open = document.querySelector(".response-open");
+  const close = document.querySelector(".response-close");
 
-    const dropdownArrow = document.querySelector('.response-rightside')
-    const featuresContent = document.querySelector('.features-dropdown-content')
-    const featuresTrigger = document.querySelector('.response-content-right')
+  const dropdownArrow = document.querySelector(".response-rightside");
+  const featuresContent = document.querySelector(".features-dropdown-content");
+  const featuresTrigger = document.querySelector(".response-content-right");
 
-    open.addEventListener('click', () => {
-        dropdownResponse.style.left = 'calc(0% + 50px)'
-        open.style = 'right: -200px'
-        close.style = 'right: 25px'
-        document.body.style = 'overflow-y: hidden'
-    })
+  open.addEventListener("click", () => {
+    dropdownResponse.style.left = "calc(0% + 50px)";
+    open.style = "right: -200px";
+    close.style = "right: 25px";
+    document.body.style = "overflow-y: hidden";
+  });
 
-    close.addEventListener('click', () => {
-        document.body.style = 'overflow-y: none'
-        dropdownResponse.style.left = 'calc(-100% - 50px)'
-        open.style = 'right: 25px'
-        close.style = 'right: -200px'
-    })
+  close.addEventListener("click", () => {
+    document.body.style = "overflow-y: none";
+    dropdownResponse.style.left = "calc(-100% - 50px)";
+    open.style = "right: 25px";
+    close.style = "right: -200px";
+  });
 
-    featuresTrigger.addEventListener('click', () => {
-        if (featuresContent.classList.contains('featuresClass')) {
-            featuresContent.style.display = 'none'
-            dropdownArrow.style = 'rotate: 0deg'
-            featuresContent.classList.remove('featuresClass')
-
-        } else {
-            featuresContent.classList.add('featuresClass')
-            featuresContent.style.display = 'block'
-            dropdownArrow.style = 'rotate: 180deg'
-        }
-    })
+  featuresTrigger.addEventListener("click", () => {
+    if (featuresContent.classList.contains("featuresClass")) {
+      featuresContent.style.display = "none";
+      dropdownArrow.style = "rotate: 0deg";
+      featuresContent.classList.remove("featuresClass");
+    } else {
+      featuresContent.classList.add("featuresClass");
+      featuresContent.style.display = "block";
+      dropdownArrow.style = "rotate: 180deg";
+    }
+  });
 }
 
 {
-    const firstSelector = document.querySelector('.first-selector')
-    const secondSelector = document.querySelector('.second-selector')
+  const firstSelector = document.querySelector(".first-selector");
+  const secondSelector = document.querySelector(".second-selector");
 
-    const iElementFst = document.querySelectorAll('.currencies.first i')
-    const iElementSec = document.querySelectorAll('.currencies.second i')
+  const iElementFst = document.querySelectorAll(".currencies.first i");
+  const iElementSec = document.querySelectorAll(".currencies.second i");
 
-    const firstDropd = document.querySelector('.first')
-    const secDropd = document.querySelector('.second')
+  const firstDropd = document.querySelector(".first");
+  const secDropd = document.querySelector(".second");
 
-    const sendInput = document.querySelector('.sendInput')
-    const sendImg = document.querySelector('.sendImg')
-    const sendCurr = document.querySelector('.sendCurr')
+  const sendInput = document.querySelector(".sendInput");
+  const sendImg = document.querySelector(".sendImg");
+  const sendCurr = document.querySelector(".sendCurr");
 
-    const takeInput = document.querySelector('.takeInput')
-    const takeImg = document.querySelector('.takeImg')
-    const takeCurr = document.querySelector('.takeCurr')
+  const takeInput = document.querySelector(".takeInput");
+  const takeImg = document.querySelector(".takeImg");
+  const takeCurr = document.querySelector(".takeCurr");
 
-    const currenciesFst = document.querySelectorAll('.currencies.first div')
-    const currenciesSec = document.querySelectorAll('.currencies.second div')
+  const currenciesFst = document.querySelectorAll(".currencies.first div");
+  const currenciesSec = document.querySelectorAll(".currencies.second div");
 
-    const currencySubmit = document.querySelector('.currency-submit')
+  const currencySubmit = document.querySelector(".currency-submit");
 
-    firstSelector.addEventListener('click', event => {
-        event.stopPropagation();
-        if (firstDropd.classList.contains('open')) {
-            firstDropd.style.display = 'none'
-            firstDropd.classList.remove('open')
+  firstSelector.addEventListener("click", (event) => {
+    event.stopPropagation();
+    if (firstDropd.classList.contains("open")) {
+      firstDropd.style.display = "none";
+      firstDropd.classList.remove("open");
+    } else {
+      firstDropd.classList.add("open");
+      firstDropd.style.display = "block";
+
+      secDropd.classList.remove("open");
+      secDropd.style.display = "none";
+    }
+  });
+
+  secondSelector.addEventListener("click", (event) => {
+    event.stopPropagation();
+    if (secDropd.classList.contains("open")) {
+      secDropd.style.display = "none";
+      secDropd.classList.remove("open");
+    } else {
+      secDropd.classList.add("open");
+      secDropd.style.display = "block";
+
+      firstDropd.classList.remove("open");
+      firstDropd.style.display = "none";
+    }
+  });
+
+  document.addEventListener("click", () => {
+    firstDropd.classList.remove("open");
+    firstDropd.style.display = "none";
+    secDropd.classList.remove("open");
+    secDropd.style.display = "none";
+  });
+
+  let currFst = "EUR";
+  let currSec = "USD";
+
+  for (elem of currenciesFst) {
+    elem.addEventListener("click", function (e) {
+      firstDropd.style.display = "none";
+      secDropd.style.display = "none";
+
+      currFst = e.currentTarget.classList.value.toUpperCase();
+      sendCurr.textContent = currFst;
+
+      sendImg.src = `../img/converter/${e.currentTarget.classList.value}.svg`;
+
+      iElementFst.forEach((element) => {
+        if (element.classList.contains(e.currentTarget.classList.value)) {
+          element.style.display = "block";
         } else {
-            firstDropd.classList.add('open')
-            firstDropd.style.display = 'block'
-
-            secDropd.classList.remove('open')
-            secDropd.style.display = 'none'
+          element.style.display = "none";
         }
-    })
+        и;
+      });
+    });
+  }
 
-    secondSelector.addEventListener('click', event => {
-        event.stopPropagation();
-        if (secDropd.classList.contains('open')) {
-            secDropd.style.display = 'none'
-            secDropd.classList.remove('open')
+  for (elem of currenciesSec) {
+    elem.addEventListener("click", function (e) {
+      firstDropd.style.display = "none";
+      secDropd.style.display = "none";
+
+      currSec = e.currentTarget.classList.value.toUpperCase();
+      takeCurr.textContent = currSec;
+
+      takeImg.src = `../img/converter/${e.currentTarget.classList.value}.svg`;
+
+      iElementSec.forEach((element) => {
+        if (element.classList.contains(e.currentTarget.classList.value)) {
+          element.style.display = "block";
         } else {
-            secDropd.classList.add('open')
-            secDropd.style.display = 'block'
-
-            firstDropd.classList.remove('open')
-            firstDropd.style.display = 'none'
+          element.style.display = "none";
         }
-    })
+      });
+    });
+  }
 
-    document.addEventListener('click', () => {
-        firstDropd.classList.remove('open')
-        firstDropd.style.display = 'none'
-        secDropd.classList.remove('open')
-        secDropd.style.display = 'none'
-    })
+  sendInput.addEventListener("click", () => {
+    sendInput.classList.add("selectedInput");
 
-    let currFst = 'EUR';
-    let currSec = 'USD';
+    currencySubmit.addEventListener("click", function () {
+      if (sendInput.classList.contains("selectedInput")) {
+        converter(
+          `https://api.api-ninjas.com/v1/convertcurrency?want=${currSec}&have=${currFst}&amount=${Number(
+            sendInput.value
+          )}`
+        );
+      }
+    });
 
-    for (elem of currenciesFst) {
-        elem.addEventListener('click', function (e) {
-            firstDropd.style.display = 'none';
-            secDropd.style.display = 'none';
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" && sendInput.classList.contains("selectedInput")) {
+        converter(
+          `https://api.api-ninjas.com/v1/convertcurrency?want=${currSec}&have=${currFst}&amount=${Number(
+            sendInput.value
+          )}`
+        );
+      }
+    });
+  });
 
-            currFst = e.currentTarget.classList.value.toUpperCase();
-            sendCurr.textContent = currFst;
+  takeInput.addEventListener("click", () => {
+    takeInput.classList.add("selectedInput");
 
-            sendImg.src = `../img/converter/${e.currentTarget.classList.value}.svg`
+    currencySubmit.addEventListener("click", function () {
+      if (takeInput.classList.contains("selectedInput")) {
+        converter(
+          `https://api.api-ninjas.com/v1/convertcurrency?want=${currFst}&have=${currSec}&amount=${Number(
+            takeInput.value
+          )}`
+        );
+      }
+    });
 
-            iElementFst.forEach(element => {
-                if (element.classList.contains(e.currentTarget.classList.value)) {
-                    element.style.display = 'block'
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" && takeInput.classList.contains("selectedInput")) {
+        converter(
+          `https://api.api-ninjas.com/v1/convertcurrency?want=${currFst}&have=${currSec}&amount=${Number(
+            takeInput.value
+          )}`
+        );
+      }
+    });
+  });
 
-                } else {
-                    element.style.display = 'none'
-                }
-            })
-        });
+  async function converter(usedURL) {
+    sendInput.classList.remove("selectedInput");
+    takeInput.classList.remove("selectedInput");
+    try {
+      const response = await fetch(usedURL, {
+        headers: { "X-Api-Key": "CSywDEh0w8NMKWyRzB1eeQ==9gye7yjxsBViR744" },
+        contentType: "application/json",
+      });
+      const json = await response.json();
+
+      if (
+        usedURL ===
+        `https://api.api-ninjas.com/v1/convertcurrency?want=${currSec}&have=${currFst}&amount=${Number(
+          sendInput.value
+        )}`
+      ) {
+        takeInput.value = json.new_amount;
+      } else if (
+        usedURL ===
+        `https://api.api-ninjas.com/v1/convertcurrency?want=${currFst}&have=${currSec}&amount=${Number(
+          takeInput.value
+        )}`
+      ) {
+        sendInput.value = json.new_amount;
+      }
+    } catch (error) {
+      console.error("Error fetching exchange rates:", error);
     }
+  }
 
-    for (elem of currenciesSec) {
-        elem.addEventListener('click', function (e) {
-            firstDropd.style.display = 'none';
-            secDropd.style.display = 'none';
+  async function onloadConverter() {
+    takeInput.onfocus = () => {
+      let currFst = "USD";
+      let currSec = "EUR";
+    };
+    const apiURL = `https://api.api-ninjas.com/v1/convertcurrency?want=${currSec}&have=${currFst}&amount=${Number(
+      sendInput.value
+    )}`;
 
-            currSec = e.currentTarget.classList.value.toUpperCase();
-            takeCurr.textContent = currSec;
+    const response = await fetch(apiURL, {
+      headers: { "X-Api-Key": "CSywDEh0w8NMKWyRzB1eeQ==9gye7yjxsBViR744" },
+      contentType: "application/json",
+    });
+    const json = await response.json();
 
-            takeImg.src = `../img/converter/${e.currentTarget.classList.value}.svg`
-
-            iElementSec.forEach(element => {
-                if (element.classList.contains(e.currentTarget.classList.value)) {
-                    element.style.display = 'block'
-
-                } else {
-                    element.style.display = 'none'
-                }
-            })
-        });
-    }
-
-    sendInput.addEventListener('click', () => {
-        sendInput.classList.add('selectedInput')
-
-        currencySubmit.addEventListener('click', function () {
-            if (sendInput.classList.contains('selectedInput')) {
-                converter(`https://api.api-ninjas.com/v1/convertcurrency?want=${currSec}&have=${currFst}&amount=${Number(sendInput.value)}`)
-            }
-        })
-
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' && sendInput.classList.contains('selectedInput')) {
-                converter(`https://api.api-ninjas.com/v1/convertcurrency?want=${currSec}&have=${currFst}&amount=${Number(sendInput.value)}`)
-            }
-        })
-    })
-
-    takeInput.addEventListener('click', () => {
-        takeInput.classList.add('selectedInput')
-
-        currencySubmit.addEventListener('click', function () {
-            if (takeInput.classList.contains('selectedInput')) {
-
-                converter(`https://api.api-ninjas.com/v1/convertcurrency?want=${currFst}&have=${currSec}&amount=${Number(takeInput.value)}`)
-            }
-        })
-
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' && takeInput.classList.contains('selectedInput')) {
-                converter(`https://api.api-ninjas.com/v1/convertcurrency?want=${currFst}&have=${currSec}&amount=${Number(takeInput.value)}`)
-            }
-        })
-    })
-
-    async function converter(usedURL) {
-        sendInput.classList.remove('selectedInput')
-        takeInput.classList.remove('selectedInput')
-        try {
-            const response = await fetch(usedURL, {
-                headers: { 'X-Api-Key': 'CSywDEh0w8NMKWyRzB1eeQ==9gye7yjxsBViR744' },
-                contentType: 'application/json',
-            });
-            const json = await response.json();
-
-            if (usedURL === `https://api.api-ninjas.com/v1/convertcurrency?want=${currSec}&have=${currFst}&amount=${Number(sendInput.value)}`) {
-                takeInput.value = json.new_amount
-            } else if (usedURL === `https://api.api-ninjas.com/v1/convertcurrency?want=${currFst}&have=${currSec}&amount=${Number(takeInput.value)}`) {
-                sendInput.value = json.new_amount
-            }
-        }
-        catch (error) {
-            console.error('Error fetching exchange rates:', error);
-        }
-    }
-
-    async function onloadConverter() {
-        takeInput.onfocus = () => {
-            let currFst = 'USD';
-            let currSec = 'EUR';
-        }
-        const apiURL = `https://api.api-ninjas.com/v1/convertcurrency?want=${currSec}&have=${currFst}&amount=${Number(sendInput.value)}`
-
-        const response = await fetch(apiURL, {
-            headers: { 'X-Api-Key': 'CSywDEh0w8NMKWyRzB1eeQ==9gye7yjxsBViR744' },
-            contentType: 'application/json',
-        });
-        const json = await response.json();
-
-        takeInput.value = json.new_amount
-    }
-    onloadConverter()
+    takeInput.value = json.new_amount;
+  }
+  onloadConverter();
 }
 
 {
-    const left = document.querySelector('.arr-left')
-    const right = document.querySelector('.arr-right')
-    const container = document.querySelectorAll('.container > div')
-    let cardWidth = document.querySelector('#card-1').scrollWidth + 20
+  const left = document.querySelector(".arr-left");
+  const right = document.querySelector(".arr-right");
+  const containers = document.querySelectorAll(".container > div");
+  let cardWidth = containers[0].scrollWidth + 20;
+  let counter = 0;
 
-    let counter = 0;
-
-    if (counter == 0) {
-        left.classList.add('not-allowed')
-    } else {
-        left.classList.remove('not-allowed')
+  left.addEventListener("click", () => {
+    if (counter > 0) {
+      counter--;
+      slideImg();
     }
-
-    if (counter == 3) {
-        right.classList.add('not-allowed')
-    } else {
-        right.classList.remove('not-allowed')
+  });
+  right.addEventListener("click", () => {
+    if (counter < containers.length - 1) {
+      counter++;
+      slideImg();
     }
-        left.addEventListener('click', () => {
-            counter--
-            if (counter < 0) {
-                counter = 0
-            } else {
-                container[counter].style = 'opacity: 1'
-                slideImg()
-            }
-        })
+  });
 
-        right.addEventListener('click', () => {
-            counter++
-            if (counter >= 4) {
-                counter = 3
-            } else {
-                container[counter - 1].style = 'opacity: 0'
-                slideImg()
-            }
-        })
+  function slideImg() {
+    left.classList.toggle("not-allowed", counter === 0);
+    right.classList.toggle("not-allowed", counter === containers.length - 1);
 
-        function slideImg() {
-            if (counter == 0) {
-                left.classList.add('not-allowed')
-            } else {
-                left.classList.remove('not-allowed')
-
-                if (counter == 3) {
-                    right.classList.add('not-allowed')
-                } else {
-                    right.classList.remove('not-allowed')
-                }
-                container.forEach(card => {
-                    card.style.transform = `translateX(-${counter * cardWidth}px)`
-                })
-            }
-        }
+    if (counter === 0) {
+      containers.forEach((card) => (card.style = "opactiy: 1"));
     }
+    containers[counter].style = "opacity: 1";
+    containers[counter - 1].style = "opacity: 0";
+
+    containers.forEach((card, index) => {
+      card.style.transform = `translateX(-${counter * cardWidth}px)`;
+    });
+  }
+}

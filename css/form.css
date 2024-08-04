@@ -1,229 +1,231 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
-    font-size: 14px;
-    font-weight: normal;
-    /* border: 1px solid red; */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: normal;
+  /* border: 1px solid red; */
 }
 
 body {
-    overflow-x: hidden;
-    overflow-y: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 main {
-    height: 100vh;
+  height: 100vh;
 }
 
 :root {
-    --bg: rgba(22, 51, 0, .078);
-    --main: #9fe870;
-    --color2: #163000;
-    --hover: #80e142;
-    --active: #65cf21;
-    --text: #0e0f0c;
-    --p: rgb(73, 73, 73);
-    --gray: rgb(70, 70, 70);
-    --clamp: clamp(2em, 18.75vw, 6.5em);
+  --bg: rgba(22, 51, 0, 0.078);
+  --main: #9fe870;
+  --color2: #163000;
+  --hover: #80e142;
+  --active: #65cf21;
+  --text: #0e0f0c;
+  --p: rgb(73, 73, 73);
+  --gray: rgb(70, 70, 70);
+  --clamp: clamp(2em, 18.75vw, 6.5em);
 }
 
-
 :hover {
-    transition: .3s
+  transition: 0.3s;
 }
 
 header {
-    width: 95%;
-    max-width: 1300px;
-    height: 80px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
+  width: 95%;
+  max-width: 1300px;
+  height: 80px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 #lhead {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 300px;
 }
 
 #lhead img {
-    width: 95px;
-    margin-right: 30px;
+  width: 95px;
+  margin-right: 30px;
 }
 
 #rhead {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .responsive-bg {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
 
 .responsive-bg:hover {
-    background: var(--bg);
+  background: var(--bg);
 }
 
 .response-close .responsive-span {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 5px;
-    position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
 }
 
 .response-close .responsive-span span:first-child {
-    rotate: 45deg;
-    position: absolute;
-    top: 50%;
+  rotate: 45deg;
+  position: absolute;
+  top: 50%;
 }
 
 .response-close .responsive-span span:last-child {
-    rotate: -45deg;
-    position: absolute;
-    top: 50%;
+  rotate: -45deg;
+  position: absolute;
+  top: 50%;
 }
 
 .response-close .responsive-span span {
-    width: 20px;
-    height: 2px;
-    background: var(--color2);
+  width: 20px;
+  height: 2px;
+  background: var(--color2);
 }
 
 .hr {
-    height: 1px;
-    margin-bottom: 50px;
-    width: 100%;
-    margin: auto;
-    background: rgb(226, 226, 226);
+  height: 1px;
+  margin-bottom: 50px;
+  width: 100%;
+  margin: auto;
+  background: rgb(226, 226, 226);
 }
 
 .social {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 40px;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  gap: 10px;
 }
 
-.social>div {
-    cursor: pointer;
-    width: 33%;
-    display: grid;
-    place-items: center;
-    border: 1px solid lightgray;
-    border-radius: 25px;
+.social > div {
+  cursor: pointer;
+  width: 33%;
+  display: grid;
+  place-items: center;
+  border: 1px solid lightgray;
+  border-radius: 25px;
 }
 
 .social img:not(#apple) {
-    width: 20px;
-    height: 20px;
-    object-fit: cover;
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
 }
 
 .social > div:hover {
-    background: rgb(231, 231, 231);
+  background: rgb(231, 231, 231);
 }
 
 .from-container {
-    width: 500px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    margin-top: 50px;
+  width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 50px;
 }
 
 .welcome {
-    text-align: center;
+  text-align: center;
 }
 
 .welcome h1 {
-    margin-bottom: 20px;
-    font-size: 1.6em;
-    font-weight: bold
+  margin-bottom: 20px;
+  font-size: 1.6em;
+  font-weight: bold;
 }
 
 a {
-    font-weight: bold;
-    color: var(--color2);
+  font-weight: bold;
+  color: var(--color2);
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 label {
-    margin-bottom: -15px;
-    /* outline: none; */
+  margin-bottom: -15px;
+  /* outline: none; */
 }
 
-h4, label {
-    color: var(--p);
-    font-size: 14px;
+h4,
+label {
+  color: var(--p);
+  font-size: 14px;
 }
 
-#email, #password {
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid gray;
+#email,
+#password {
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid gray;
 }
 
-#email:hover, #password:hover {
-    box-shadow: inset 0px 0px 0px 1px gray;
+#email:hover,
+#password:hover {
+  box-shadow: inset 0px 0px 0px 1px gray;
 }
 
 #submit {
-    padding: 15px;
-    border-radius: 25px;
-    background: var(--main);
-    color: var(--color2);
-    font-weight: bold;
-    border: 0px;
+  padding: 15px;
+  border-radius: 25px;
+  background: var(--main);
+  color: var(--color2);
+  font-weight: bold;
+  border: 0px;
 }
 
 #submit:hover {
-    background: var(--hover);
+  background: var(--hover);
 }
 
 #password {
-    width: 100%;
+  width: 100%;
 }
 
 .possword-container {
-    position: relative;
+  position: relative;
 }
 
 .close-eye {
-    display: none;
+  display: none;
 }
 
 .eye {
-    cursor: pointer;
-    position: absolute;
-    top: calc(50% + 3px);
-    right: 20px;
-    transform: translateY(-50%);
+  cursor: pointer;
+  position: absolute;
+  top: calc(50% + 3px);
+  right: 20px;
+  transform: translateY(-50%);
 }
 
 footer {
-    position: relative;
-    bottom: 0;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: lightgray;
+  position: relative;
+  bottom: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: lightgray;
 }
